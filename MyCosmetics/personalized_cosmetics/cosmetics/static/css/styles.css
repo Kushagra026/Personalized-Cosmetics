@@ -1,0 +1,638 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    background: url('https://wallpapers.com/images/featured/crumpled-paper-xukvqcppjiwpend0.webp') no-repeat center center fixed;
+    background-size: cover;
+    color: #333; /* Neutral text color */
+}
+
+/* Slim Sale Bar */
+.sale-bar {
+    width: 120%;
+    left: -10%;
+    position: fixed;
+    background: #6f4e37; /* Solid roasted coffee brown */
+    color: #fff; /* White text */
+    text-align: center;
+    padding: 10px 0; /* Thinner bar */
+    font-size: 1.1em;
+    font-weight: bold;
+    top: 0;
+    z-index: 1100;
+    border-bottom: none;
+    box-shadow: none;
+}
+
+.sale-bar p {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Header */
+.hero {
+    background-color: #013220; /* English green */
+    color: #fff; /* White text */
+    text-align: center;
+    padding: 50px 20px;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.flaunty-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 4em;
+    color: #fff; /* White text */
+    margin: 0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.subtitle {
+    font-size: 1.5em;
+    color: #f5f5f5; /* Off white */
+    margin-bottom: 20px;
+}
+
+/* Navbar */
+.navbar {
+    margin-top: 20px;
+}
+
+.nav-link {
+    color: #fff; /* White text */
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #d4af37; /* Gold accent */
+}
+
+/* Form Highlight Section */
+.form-highlight {
+    padding: 50px 20px;
+    background-color: #fff; /* White */
+    text-align: center;
+    border-top: 2px solid #d4af37; /* Gold accent */
+}
+
+.form-highlight h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #013220; /* English green */
+}
+
+.form-highlight p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.form-highlight form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5; /* Off white */
+    border: 2px solid #013220; /* English green */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+    background-color: #013220; /* English green */
+    color: #fff; /* White text */
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #d4af37; /* Gold accent */
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    background: #f2f2f2; /* Light grey */
+    color: #333;
+    text-align: center;
+    padding: 18px 0;
+    font-size: 1em;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.04);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 9999;
+}
+
+/* Top Bar */
+.top-bar {
+    width: 100%;
+    background-color: #fff; /* White background */
+    text-align: center;
+    padding: 20px 0;
+    position: fixed;
+    top: 40px; /* Start immediately after the sale bar (10px padding top + 20px font height + ~10px line height) */
+    z-index: 1200; /* Ensure it's above the sale bar */
+    border-bottom: none;
+}
+
+.top-bar-title {
+    font-family: Arial, sans-serif; /* Default font */
+    font-size: 3em;
+    color: #808080;
+    letter-spacing: 0.2em;
+    margin: 0;
+}
+
+/* Side Menu */
+.side-menu {
+    width: 250px;
+    background-color: #013220; /* English green */
+    height: 100vh;
+    padding-top: 80px; /* Space for the top bar */
+    position: fixed;
+    left: 0;
+    top: 0;
+    box-shadow: none; /* Remove any shadow or border */
+}
+
+.side-menu nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.side-menu nav ul li {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.side-menu nav ul li a {
+    text-decoration: none;
+    color: #fff; /* White text */
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.side-menu nav ul li a:hover {
+    color: #d4af37; /* Gold accent */
+}
+
+/* Homepage Background */
+.homepage-bg {
+    min-height: 100vh;
+    background: url('https://wallpapers.com/images/featured/crumpled-paper-xukvqcppjiwpend0.webp') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.center-box {
+    background: rgba(255,255,255,0.85);
+    padding: 40px 30px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+}
+
+.center-box h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #6f4e37; /* Roasted coffee brown, same as sale bar */
+}
+
+.center-box p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    color: #6f4e37; /* Roasted coffee brown, same as sale bar */
+}
+
+.game-btn {
+    display: inline-block;
+    background: #6f4e37; /* Roasted coffee brown, same as sale bar */
+    color: #fff;
+    padding: 12px 32px;
+    border-radius: 8px;
+    font-size: 1.2em;
+    text-decoration: none;
+    transition: background 0.3s;
+    font-weight: bold;
+}
+
+.game-btn:hover {
+    background: #d4af37;
+    color: #6f4e37;
+}
+
+/* Page 1 Background */
+.page1-bg {
+    background: url('https://marketplace.canva.com/EAEuFal6Ng4/1/0/1600w/canva-beige-minimalist-geometric-rainbow-desktop-wallpaper-aPWgrE3wylE.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.page1-title-overlay {
+    position: absolute;
+    left: 50%;
+    top: 50%; /* Center vertically */
+    transform: translate(-50%, -50%);
+    font-size: 2.86em; /* 30% larger than 2.2em */
+    color: rgba(111, 78, 55, 0.18); /* Roasted coffee brown with high transparency */
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    letter-spacing: 0.12em;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+    z-index: 10;
+}
+
+/* Floating Search Bar */
+.floating-search-bar {
+    position: fixed;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #f2f2f2; /* Light grey, same as footer */
+    border-radius: 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 8px 24px 8px 16px;
+    display: flex;
+    align-items: center;
+    z-index: 10001;
+    min-width: 340px;
+    max-width: 90vw;
+}
+
+.floating-search-bar input {
+    border: none;
+    outline: none;
+    font-size: 1.1em;
+    background: transparent;
+    flex: 1;
+    padding: 6px 0;
+}
+
+.floating-search-bar .search-icon {
+    font-size: 1.3em;
+    color: #000; /* Black */
+    filter: grayscale(100%);
+    margin-left: 18px;
+    cursor: pointer;
+}
+
+/* Page 1 Side Bar */
+.page1-side-bar {
+    position: fixed;
+    top: 50%;
+    width: 60px; /* Thicker bars */
+    height: 70vh;
+    background: #6f4e37;
+    z-index: 1000;
+    border-radius: 0 30px 30px 0;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center content vertically */
+    overflow: hidden;
+}
+
+.page1-side-bar.right {
+    right: 0;
+    left: auto;
+    border-radius: 30px 0 0 30px;
+}
+
+.page1-side-bar.left {
+    left: 0;
+    right: auto;
+}
+
+.vertical-label {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    color: #fff;
+    font-size: 1.7em;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    margin: 0; /* Remove top margin for perfect centering */
+    text-align: center;
+    user-select: none;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+/* Page 1 Photo Group */
+.page1-photo-group {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 32px; /* Space between the two photos */
+    z-index: 11;
+}
+
+.left-photo-group {
+    left: 12%; /* Match the right-photo-group's distance from the right bar */
+}
+
+.right-photo-group {
+    right: 12%; /* Keep as is for equal spacing */
+}
+
+.side-photo {
+    width: 240px;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+
+/* Personalize Search Row */
+.personalize-search-row {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 80px;
+    margin-bottom: 40px;
+}
+
+.personalize-search-box {
+    background: #f2f2f2; /* Same as previous search bar and footer */
+    border-radius: 24px;  /* Same as .floating-search-bar */
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 8px 24px 8px 16px; /* Same as .floating-search-bar */
+    min-width: 340px;
+    max-width: 90vw;
+    display: flex;
+    align-items: center;
+    font-size: 1.1em; /* Match .floating-search-bar input */
+    color: #6f4e37;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    justify-content: center;
+}
+
+/* Add to your styles.css */
+.back-arrow-circle {
+    width: 46px;   /* 32px * 1.45 ≈ 46px */
+    height: 46px;  /* 32px * 1.45 ≈ 46px */
+    background: #f2f2f2;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    flex-shrink: 0;
+}
+
+.back-arrow {
+    color: #000;
+    font-size: 1.74em; /* 1.2em * 1.45 ≈ 1.74em */
+    font-weight: bold;
+    line-height: 1;
+}
+
+/* Page 1 Back Arrow Container */
+.page1-back-arrow-container {
+    position: absolute;
+    top: 32px; /* Align with the search bar */
+    left: 6.5%; /* Adjust as needed to keep it between left bar and left photos */
+    z-index: 12;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Photo Overlay Box */
+.photo-overlay-box {
+    position: absolute;
+    top: 40px;
+    left: 8vw;
+    width: 40vw;      /* Increased width */
+    height: 220px;    /* Increased height */
+     background: transparent;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+}
+
+/* Personalize Title Box */
+.personalize-title-box {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;   /* Smaller text */
+    color: #222;         /* Black text */
+    text-shadow: none;   /* Remove shadow */
+    z-index: 10;
+}
+
+.feedback-heading {
+    width: 100%;
+    text-align: center;
+    font-family: 'Arial Black', Arial, sans-serif;
+    font-size: 2.2em;
+    color: #222;
+    margin-top: 32px;
+    margin-bottom: 0;
+    letter-spacing: 0.04em;
+}
+
+/* Add to your <style> section or styles.css */
+.personalize-form-overlay {
+    position: absolute;
+    top: 60px;
+    left: calc(5vw + 40px); /* Move 40px to the right from the original position */
+    width: 40vw;
+    height: 340px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    z-index: 20;
+}
+
+.personalize-form-container {
+    max-width: 800px; /* Increased width */
+    margin: 40px auto 0 auto;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    padding: 32px 24px 24px 24px;
+    z-index: 10;
+    position: relative;
+}
+
+.personalize-form-container h2 {
+    text-align: center;
+    font-family: 'Arial Black', Arial, sans-serif;
+    font-size: 1.5em;
+    color: #6f4e37;
+    margin-bottom: 22px;
+    letter-spacing: 0.04em;
+}
+
+.personalize-form-container label {
+    font-weight: bold;
+    display: block;
+    margin-top: 14px;
+    margin-bottom: 4px;
+    color: #6f4e37;
+    font-size: 1.08em;
+    letter-spacing: 0.01em;
+}
+
+.personalize-form-container select {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px 8px;
+    border-radius: 10px;
+    border: 1.5px solid #d4af37;
+    font-size: 1em;
+    background: #f8f8f8;
+    color: #333;
+    transition: border 0.2s;
+}
+
+.personalize-form-container select:focus {
+    border: 1.5px solid #6f4e37;
+    outline: none;
+}
+
+.personalize-form-container button {
+    grid-column: 1 / -1;
+    margin-top: 24px;
+    width: 100%;
+    padding: 12px 0;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #6f4e37 60%, #d4af37 100%);
+    color: #fff;
+    font-size: 1.15em;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(111, 78, 55, 0.08);
+    transition: background 0.2s;
+}
+
+.personalize-form-container button:hover {
+    background: linear-gradient(90deg, #d4af37 0%, #6f4e37 100%);
+    color: #fff;
+}
+
+/* Add to your styles.css */
+.picture-gallery {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin: 24px 0;
+}
+.picture-gallery img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid #d4af37;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+.picture-gallery img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 4px 16px rgba(111,78,55,0.18);
+}
+
+/* New Form Split Styles */
+.form-split-container {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.form-half {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    padding: 32px 24px 24px 24px;
+    width: 340px;
+    min-width: 300px;
+    max-width: 380px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-half:nth-child(2) {
+    position: relative;
+    left: 200px;   /* Move 200px to the right */
+    top: -20px;    /* Move 20px up */
+}
+
+.form-half form label {
+    font-weight: bold;
+    margin-top: 14px;
+    margin-bottom: 4px;
+    color: #6f4e37;
+    font-size: 1.08em;
+}
+
+.form-half form select,
+.form-half form input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px 8px;
+    border-radius: 10px;
+    border: 1.5px solid #d4af37;
+    font-size: 1em;
+    background: #f8f8f8;
+    color: #333;
+}
+
+.form-half form button {
+    margin-top: 18px;
+    padding: 12px 0;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #6f4e37 60%, #d4af37 100%);
+    color: #fff;
+    font-size: 1.15em;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(111, 78, 55, 0.08);
+    transition: background 0.2s;
+}
+
+.form-half form button:hover {
+    background: linear-gradient(90deg, #d4af37 0%, #6f4e37 100%);
+    color: #fff;
+}

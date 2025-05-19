@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <title>Tips</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://imgs.search.brave.com/2C0M9M29JDJJ7CwU9cUrwXMhjmzV7YXZvLpCeWUY_BU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTcx/MjUwNjk5L3Bob3Rv/L2JlaWdlLXNpbGst/YmFja2dyb3VuZC5q/cGc_cz02MTJ4NjEy/Jnc9MCZrPTIwJmM9/S1E5NEFVRTZtLUE5/cVp2dm5OTnlSMGtO/aFNBdTBlSkVrQnBo/Q2pkX2Zkdz0') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 36px;
+            color: #6f4e37;
+        }
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 28px;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 24px;
+        }
+        .tip-box {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 18px rgba(111,78,55,0.10);
+            padding: 28px 22px;
+            color: #6f4e37;
+            font-size: 1.08em;
+            text-align: center;
+            transition: box-shadow 0.2s;
+        }
+        .tip-box:hover {
+            box-shadow: 0 8px 32px rgba(111,78,55,0.18);
+        }
+    </style>
+</head>
+<body>
+    <!-- Back button on the left middle -->
+    <a href="{% url 'personalize' %}" 
+       style="
+           position: fixed;
+           left: 32px;
+           top: 50%;
+           transform: translateY(-50%);
+           text-decoration: none;
+           font-size: 2em;
+           color: #6f4e37;
+           background: rgba(255,255,255,0.7);
+           border-radius: 50%;
+           width: 44px;
+           height: 44px;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+           z-index: 100;
+           transition: background 0.2s;
+       "
+       onmouseover="this.style.background='#f5e9e0'"
+       onmouseout="this.style.background='rgba(255,255,255,0.7)'"
+       title="Back"
+    >&larr;</a>
+    <!-- Back to home button on the right middle -->
+    <a href="{% url 'home' %}"
+       style="
+           position: fixed;
+           right: 32px;
+           top: 50%;
+           transform: translateY(-50%);
+           text-decoration: none;
+           font-size: 1.15em;
+           color: #6f4e37;
+           background: rgba(255,255,255,0.7);
+           border-radius: 50px;
+           padding: 0 22px;
+           height: 44px;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+           z-index: 100;
+           font-weight: bold;
+           transition: background 0.2s;
+       "
+       onmouseover="this.style.background='#fff3d4'"
+       onmouseout="this.style.background='rgba(255,255,255,0.7)'"
+       title="Back to Home"
+    >Back to Home &gt;</a>
+    <h1>Cosmetic Tips</h1>
+    <div class="tips-grid">
+        <div class="tip-box">Always check the ingredients.</div>
+        <div class="tip-box">Choose products suitable for your skin type.</div>
+        <div class="tip-box">Stay hydrated for healthy skin.</div>
+        <div class="tip-box">Remove makeup before going to bed.</div>
+        <div class="tip-box">Use sunscreen daily, even indoors.</div>
+        <div class="tip-box">Exfoliate gently once or twice a week.</div>
+        <div class="tip-box">Moisturize after every wash.</div>
+        <div class="tip-box">Patch test new products before full use.</div>
+        <div class="tip-box">Avoid touching your face with unwashed hands.</div>
+        <div class="tip-box">Replace your pillowcase regularly.</div>
+        <div class="tip-box">Eat a balanced diet rich in vitamins.</div>
+        <div class="tip-box">Don’t share personal cosmetics or tools.</div>
+        <div class="tip-box">Store skincare products in a cool, dry place.</div>
+        <div class="tip-box">Consult a dermatologist for persistent issues.</div>
+        <div class="tip-box">Be consistent with your skincare routine.</div>
+    </div>
+    <footer style="width:100%;text-align:center;padding:24px 0 18px 0;background:#6f4e37;color:#fff;font-size:1.08em;position:relative;z-index:10;">
+        &copy; 2025 MyCosmetics. All rights reserved.
+    </footer>
+</body>
+</html>

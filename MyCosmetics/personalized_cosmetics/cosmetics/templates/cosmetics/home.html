@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>MyCosmetics</title>
+</head>
+<body class="homepage-bg">
+    <!-- Slim Sale Bar -->
+    <div class="sale-bar">
+        <p>Sale - Grab the hottest deals now!</p>
+    </div>
+
+    <div class="center-box">
+        <h1>MyCosmetics</h1>
+        <p>Tailored to your skin care needs</p>
+        <a href="{% url 'page1' %}" class="game-btn">Let's Go</a>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const btn = document.querySelector('.game-btn');
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.body.classList.add('fade-out');
+            setTimeout(function() {
+                window.location.href = btn.getAttribute('href');
+            }, 700); // Match the CSS transition duration
+        });
+    });
+    </script>
+</body>
+</html>

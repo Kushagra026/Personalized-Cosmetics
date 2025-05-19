@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Personalized Cosmetics Suggestions</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Personalized Cosmetics Suggestions</h1>
+        <p>Based on your preferences, we recommend the following products:</p>
+        <ul>
+            {% for suggestion in suggestions %}
+                <li>{{ suggestion }}</li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'home' %}" class="btn">Go Back</a>
+    </div>
+</body>
+</html>

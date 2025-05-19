@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Personalize</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        body {
+            background: url('https://imgs.search.brave.com/s3huLXDANFrPe963cwEMZFPBQu3Pij4WabpWCtKBL-E/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1waG90/by9iZWlnZS1jcnVt/cGxlZC1wYXBlci1i/YWNrZ3JvdW5kXzUz/ODc2LTE0Mzg3MC5q/cGc_c2VtdD1haXNf/aHlicmlkJnc9NzQw') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+        }
+        .centered-top-image {
+            display: block;
+            margin: 40px auto 0 auto;
+            width: 90vw;
+            max-width: 1200px;
+            height: auto;
+            aspect-ratio: 16/7;
+            object-fit: cover;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.25), 0 1.5px 8px rgba(0,0,0,0.10);
+            border-radius: 18px;
+        }
+        .feedback-heading {
+            font-size: 1.5em;
+            margin: 0 0 18px 0;
+            font-family: 'Arial Black', Arial, sans-serif;
+            color: #222;
+            text-align: center;
+        }
+        .photo-overlay-box {
+            background: transparent;
+            box-shadow: none;
+            border-radius: 0;
+            padding: 0;
+            max-width: 600px;
+            margin: 40px auto;
+            width: 100%;
+            position: relative;
+        }
+        .photo-overlay-box label {
+            font-weight: bold;
+            display: block;
+            margin-top: 12px;
+        }
+        .photo-overlay-box select, 
+        .photo-overlay-box button {
+            width: 100%;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+        }
+        .photo-overlay-box button {
+            background: #6f4e37;
+            color: #fff;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            padding: 12px;
+        }
+        #suggestions {
+            margin-top: 18px;
+            padding: 12px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        #suggestions h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        #suggestions ul {
+            padding-left: 18px;
+        }
+        #suggestions li {
+            margin-bottom: 8px;
+        }
+        /* Tips box style */
+        .tips-box-personalize {
+            position: fixed;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            flex: 0 0 340px;
+            height: 220px;
+            background: #6f4e37;
+            color: #fff;
+            border-radius: 18px 0 0 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 36px 32px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+            z-index: 9999; /* Topmost layer */
+        }
+    </style>
+</head>
+<body>
+    <a href="{% url 'page1' %}" 
+       style="position: absolute; top: 32px; left: 32px; text-decoration: none; font-size: 2em; color: #6f4e37; background: rgba(255,255,255,0.7); border-radius: 50%; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.08); z-index: 100; transition: background 0.2s;"
+       onmouseover="this.style.background='#f5e9e0'"
+       onmouseout="this.style.background='rgba(255,255,255,0.7)'"
+       title="Back"
+    >&larr;</a>
+    <div class="photo-overlay-box">
+        <form id="personalize-form" style="width:90%; margin-top:18px;">
+            <h2 class="feedback-heading" style="font-size:1.2em; margin-top:0; margin-bottom:18px; font-family:'Arial Black', Arial, sans-serif; color:#222; text-align:center;">
+                Personalize
+            </h2>
+            <label for="skin-type" style="font-weight:bold;">Skin Type:</label>
+            <select id="skin-type" name="skin_type" required style="width:100%;margin-bottom:16px;padding:6px;border-radius:8px;">
+                <option value="" disabled selected>Select your skin type</option>
+                <option value="Dry">Dry</option>
+                <option value="Oily">Oily</option>
+                <option value="Sensitive">Sensitive</option>
+                <option value="Combination">Combination</option>
+                <option value="Normal">Normal</option>
+            </select>
+            <label for="age-group" style="font-weight:bold;">Age Group:</label>
+            <select id="age-group" name="age_group" required style="width:100%;margin-bottom:16px;padding:6px;border-radius:8px;">
+                <option value="" disabled selected>Select your age group</option>
+                <option value="Under 18">Under 18</option>
+                <option value="18–25">18–25</option>
+                <option value="26–35">26–35</option>
+                <option value="36–50">36–50</option>
+                <option value="50+">50+</option>
+            </select>
+            <!-- New Question: Fragrance Preference -->
+            <label for="fragrance" style="font-weight:bold;">Fragrance Preference:</label>
+            <select id="fragrance" name="fragrance" required style="width:100%;margin-bottom:18px;padding:6px;border-radius:8px;">
+                <option value="" disabled selected>Fragrance-free?</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="Doesn't matter">Doesn't matter</option>
+            </select>
+            <button type="button" id="get-suggestions" style="width:100%;padding:10px 0;border:none;border-radius:8px;background:#6f4e37;color:#fff;font-size:1.1em;font-weight:bold;cursor:pointer;">
+                Get Suggestions
+            </button>
+            <div id="suggestions" style="margin-top:18px;"></div>
+        </form>
+    </div>
+    <div class="tips-box-personalize">
+        <h2 style="margin: 0 0 18px 0; font-size: 1.3em; font-family: 'Arial Black', Arial, sans-serif; color: #fff;">
+            Check out more tips
+        </h2>
+        <a href="{% url 'tips' %}" style="
+            margin-top: 18px;
+            padding: 10px 28px;
+            background: #d4af37;
+            color: #6f4e37;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background 0.2s;
+            cursor: pointer;
+            display: inline-block;
+        " onmouseover="this.style.background='#fff3d4'" onmouseout="this.style.background='#d4af37'">
+            more &gt;
+        </a>
+    </div>
+    <img 
+        src="https://imgs.search.brave.com/A9k-1aeXbBWNa9EYmHnwl9iHxGGwUPzMA5BIKy95MOs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdDQu/ZGVwb3NpdHBob3Rv/cy5jb20vMTMzNDk0/OTQvMjczNDMvaS80/NTAvZGVwb3NpdHBo/b3Rvc18yNzM0MzY1/MTQtc3RvY2stcGhv/dG8tY3JlYW0tdHVi/ZS1jb3NtZXRpYy1n/bGFzcy1ib3R0bGVz/LmpwZw"
+        alt="Center Banner"
+        class="centered-top-image"
+    >
+    <footer>
+        &copy; 2025 MyCosmetics. All rights reserved.
+    </footer>
+    <script>
+        // Simple product suggestion logic
+        const suggestionsData = {
+            "Dry": {
+                "Under 18": [
+                    {name: "Gentle Hydrating Cleanser", desc: "Mild, non-stripping cleanser for young dry skin."},
+                    {name: "Lightweight Moisturizer", desc: "Hydrates without heaviness, perfect for teens."}
+                ],
+                "18–25": [
+                    {name: "Hydrating Serum", desc: "Boosts moisture and soothes dry patches."},
+                    {name: "Rich Night Cream", desc: "Deep hydration for youthful skin."}
+                ],
+                "26–35": [
+                    {name: "Ceramide Cream", desc: "Restores skin barrier and locks in moisture."},
+                    {name: "Gentle Exfoliating Mask", desc: "Removes flakes, reveals smooth skin."}
+                ],
+                "36–50": [
+                    {name: "Intense Repair Balm", desc: "Targets dryness and fine lines."},
+                    {name: "Hydrating Toner", desc: "Preps skin for better absorption."}
+                ],
+                "50+": [
+                    {name: "Ultra-Rich Moisturizer", desc: "Deeply nourishes mature dry skin."},
+                    {name: "Firming Eye Cream", desc: "Reduces dryness and firms delicate skin."}
+                ]
+            },
+            "Oily": {
+                "Under 18": [
+                    {name: "Oil-Free Gel Cleanser", desc: "Removes excess oil without over-drying."},
+                    {name: "Mattifying Moisturizer", desc: "Controls shine for a fresh look."}
+                ],
+                "18–25": [
+                    {name: "Salicylic Acid Toner", desc: "Keeps pores clear and reduces oil."},
+                    {name: "Light Gel Moisturizer", desc: "Hydrates without clogging pores."}
+                ],
+                "26–35": [
+                    {name: "Balancing Serum", desc: "Regulates oil and refines texture."},
+                    {name: "Clay Mask", desc: "Absorbs oil and purifies skin."}
+                ],
+                "36–50": [
+                    {name: "Pore-Minimizing Cream", desc: "Smooths skin and controls oil."},
+                    {name: "Oil-Control Sunscreen", desc: "Protects without greasiness."}
+                ],
+                "50+": [
+                    {name: "Gentle Foaming Cleanser", desc: "Cleanses without stripping."},
+                    {name: "Nourishing Gel Cream", desc: "Hydrates and balances mature skin."}
+                ]
+            },
+            "Sensitive": {
+                "Under 18": [
+                    {name: "Fragrance-Free Cleanser", desc: "Soothes and gently cleanses."},
+                    {name: "Calming Moisturizer", desc: "Reduces redness and irritation."}
+                ],
+                "18–25": [
+                    {name: "Barrier Repair Cream", desc: "Strengthens and protects sensitive skin."},
+                    {name: "Soothing Mist", desc: "Refreshes and calms on the go."}
+                ],
+                "26–35": [
+                    {name: "Hypoallergenic Serum", desc: "Hydrates and soothes sensitive skin."},
+                    {name: "Gentle SPF Lotion", desc: "Protects without irritation."}
+                ],
+                "36–50": [
+                    {name: "Anti-Redness Cream", desc: "Targets redness and calms skin."},
+                    {name: "Nourishing Balm", desc: "Repairs and soothes sensitive skin."}
+                ],
+                "50+": [
+                    {name: "Ultra-Calming Moisturizer", desc: "Deeply hydrates and soothes."},
+                    {name: "Sensitive Skin Cleanser", desc: "Cleanses gently for mature skin."}
+                ]
+            },
+            "Combination": {
+                "Under 18": [
+                    {name: "Balancing Cleanser", desc: "Cleanses oily and dry areas gently."},
+                    {name: "Dual-Action Moisturizer", desc: "Hydrates dry spots, controls oil."}
+                ],
+                "18–25": [
+                    {name: "Lightweight Gel Cream", desc: "Balances moisture for combo skin."},
+                    {name: "Pore-Refining Toner", desc: "Minimizes pores and refreshes."}
+                ],
+                "26–35": [
+                    {name: "Hydrating Gel Mask", desc: "Moisturizes and balances skin."},
+                    {name: "Mattifying Serum", desc: "Controls shine in oily zones."}
+                ],
+                "36–50": [
+                    {name: "Multi-Tasking Cream", desc: "Hydrates and balances combination skin."},
+                    {name: "Gentle Exfoliant", desc: "Smooths and renews skin."}
+                ],
+                "50+": [
+                    {name: "Balancing Day Cream", desc: "Hydrates and controls oil for mature skin."},
+                    {name: "Nourishing Night Balm", desc: "Restores skin overnight."}
+                ]
+            },
+            "Normal": {
+                "Under 18": [
+                    {name: "Daily Gentle Cleanser", desc: "Maintains healthy, balanced skin."},
+                    {name: "Light Moisturizer", desc: "Hydrates without heaviness."}
+                ],
+                "18–25": [
+                    {name: "Refreshing Toner", desc: "Keeps skin fresh and balanced."},
+                    {name: "Hydrating Gel Cream", desc: "Moisturizes and protects."}
+                ],
+                "26–35": [
+                    {name: "Antioxidant Serum", desc: "Protects and maintains healthy skin."},
+                    {name: "Daily SPF Moisturizer", desc: "Shields and hydrates."}
+                ],
+                "36–50": [
+                    {name: "Nourishing Cream", desc: "Supports skin health and radiance."},
+                    {name: "Firming Serum", desc: "Boosts elasticity and smoothness."}
+                ],
+                "50+": [
+                    {name: "Revitalizing Night Cream", desc: "Restores and rejuvenates overnight."},
+                    {name: "Gentle Cleansing Milk", desc: "Cleanses and comforts mature skin."}
+                ]
+            }
+        };
+
+        document.getElementById('get-suggestions').onclick = function() {
+            const skinType = document.getElementById('skin-type').value;
+            const ageGroup = document.getElementById('age-group').value;
+            const suggestionsDiv = document.getElementById('suggestions');
+            suggestionsDiv.innerHTML = '';
+            if (skinType && ageGroup && suggestionsData[skinType] && suggestionsData[skinType][ageGroup]) {
+                const products = suggestionsData[skinType][ageGroup];
+                let html = '<h3 style="font-size:1.1em;margin-bottom:10px;">Recommended Products:</h3><ul style="padding-left:18px;">';
+                products.forEach(p => {
+                    html += `<li style="margin-bottom:8px;"><strong>${p.name}</strong>: <span style="font-size:0.98em;">${p.desc}</span></li>`;
+                });
+                html += '</ul>';
+                suggestionsDiv.innerHTML = html;
+            } else {
+                suggestionsDiv.innerHTML = '<span style="color:#b00;">Please select both options.</span>';
+            }
+        };
+    </script>
+</body>
+</html>
